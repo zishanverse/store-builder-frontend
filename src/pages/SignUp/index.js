@@ -19,7 +19,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const userDetails = {email_phone, password, created_at: JSON.stringify(new Date())}
-      const options = {method: "POST",url: "http://localhost:4000/api/signup", data: userDetails}
+      const options = {method: "POST",url: `${process.env.REACT_APP_BACKEND_URL}/api/signup`, data: userDetails}
       const response = await axios(options)
       console.log(response);
       navigate("/plans");

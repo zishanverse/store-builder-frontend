@@ -17,7 +17,7 @@ const LogIn = props => {
         const userDetails = {email_phone, password};
         const options = {
             method: "POST",
-            url: "http://localhost:4000/login/",
+            url: `${process.env.REACT_APP_BACKEND_URL}/login/`,
             data: userDetails
         }
         try {
