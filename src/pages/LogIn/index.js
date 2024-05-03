@@ -1,4 +1,3 @@
-
 import {useState} from 'react';
 import {useNavigate, Link} from 'react-router-dom';
 import Cookies from 'js-cookie';
@@ -10,28 +9,24 @@ const LogIn = props => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-
-
+    const url = "https://store-builder-backend-production.up.railway.app";
     const formSubmit = async (e) => {
         e.preventDefault();
         const userDetails = {email_phone, password};
         const options = {
             method: "POST",
-            url: `${process.env.REACT_APP_BACKEND_URL}/login/`,
+            url: `${url}/login/`,
             data: userDetails
         }
         try {
             const res = await axios(options);
-            console.log(res.data.jwtToken);
             Cookies.set("jwt_token", res.data.jwtToken);
             navigate("/plans");
         }
         catch (err){
             setError(err);
             setError(err.response.data);
-            console.log(err.response.data);
         }
-        
 
     }
   return (

@@ -8,11 +8,11 @@ import UserWebsite from './pages/UserWebsite/index';
 
 const App = () => (
   <Routes>
-    <Route exact path="/" Component={Admin} />
-    <Route exact path="/login" Component={LogIn} />
-    <Route exact path="/signup" Component={SignUp} />
-    <Route exact path="/plans" Component={Plans} />
-    <Route exact path="/user-website" Component={UserWebsite} />
+    <Route exact path="/" element={<Admin />} />
+    <Route exact path="/login" element={<LogIn />} />
+    <Route exact path="/signup" element={<SignUp />} />
+    <Route exact path="/plans" element={<Plans />} />
+    <Route exact path="/user-website" element={<UserWebsite />} />
   </Routes>
 )
 

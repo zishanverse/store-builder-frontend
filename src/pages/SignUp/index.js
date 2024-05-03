@@ -20,8 +20,7 @@ const SignUp = () => {
     try {
       const userDetails = {email_phone, password, created_at: JSON.stringify(new Date())}
       const options = {method: "POST",url: `${process.env.REACT_APP_BACKEND_URL}/api/signup`, data: userDetails}
-      const response = await axios(options)
-      console.log(response);
+      const response = await axios(options);
       navigate("/plans");
     }
     catch (err) {
