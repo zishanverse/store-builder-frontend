@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const AdminContainer = styled.div`
   display: flex;
+  height: 100vh;
 `;
 
 
@@ -13,8 +14,10 @@ export const AppContainer = styled.div`
   background-color: rgba(236, 236, 236, 0.29);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   font-size: 16px;
-  padding: 70px 8px 18px;
+  padding: 10px;
+  padding-top: 15px;
 `;
 
 export const Header = styled.header`
@@ -45,7 +48,6 @@ export const MenuContainer = styled.nav`
   display: flex;
   flex-direction: column;
   font-weight: 400;
-  margin-top: 525px;
   padding: 6px 0;
   width: 100%;
 
@@ -58,7 +60,7 @@ export const MenuItem = styled.div`
   display: flex;
   gap: 20px;
   justify-content: space-between;
-  margin: 0 11px 0 12px;
+  margin-bottom: 10px;
   cursor: pointer;
   @media (max-width: 991px) {
     margin: 0 10px;
@@ -75,18 +77,7 @@ export const MenuIcon = styled.img`
   width: 23px;
 `;
 
-export const Divider = styled.hr`
-  align-self: center;
-  aspect-ratio: 100;
-  border-color: rgba(0, 0, 0, 0.25);
-  border-style: solid;
-  border-width: 1px;
-  margin-top: 4px;
-  object-fit: cover;
-  stroke: rgba(0, 0, 0, 0.25);
-  stroke-width: 1px;
-  width: 184px;
-`;
+
 
 
 
@@ -104,7 +95,12 @@ export const Container = styled.div`
   
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 1; 
+  background-color: #fafafa;
+  padding: 30px;
+  padding-left: 50px;
+  height: 100vh;
+  overflow-y: auto;
   width: fit-content;
   @media (max-width: 991px) {
     max-width: 100%;
@@ -152,7 +148,7 @@ export const IntroSection = styled.section`
 
 export const IntroText = styled.p`
   color: #000;
-  font: 500 16px Poppins, sans-serif;
+  font: 600 16px Poppins, sans-serif;
   @media (max-width: 991px) {
     max-width: 100%;
   }
@@ -160,7 +156,8 @@ export const IntroText = styled.p`
 
 export const StoreSetupSection = styled.section`
   border-radius: 8px;
-  background-color: #fafafa;
+  background-color: #fff;
+  box-shadow: 0px 0px 2px 0px #000;
   display: flex;
   margin-top: 35px;
   flex-direction: column;
@@ -227,18 +224,17 @@ export const StoreSetupSteps = styled.div`
 export const StoreSetupStep = styled.div`
   display: flex;
   gap: 18px;
+  margin-bottom: 10px;
   @media (max-width: 991px) {
     flex-wrap: wrap;
   }
 `;
 
 export const StepIcon = styled.div`
-  align-self: start;
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-size: 11px;
-  color: #000;
-  white-space: nowrap;
   @media (max-width: 991px) {
     white-space: initial;
   }
@@ -253,10 +249,11 @@ export const StepImage = styled.img`
 `;
 
 export const StepDivider = styled.div`
-  border: 1px solid #c9c9c9;
+  
   background-color: #c9c9c9;
   margin-top: 7px;
-  height: 41px;
+  height: 90%;
+  width: 1px;
 `;
 
 export const StepNumber = styled.div`
@@ -264,6 +261,9 @@ export const StepNumber = styled.div`
   background-color: #fff;
   border-radius: 50%;
   margin-top: 10px;
+  height: 30px;
+  width: 30px;
+  display: flex;
   justify-content: center;
   padding: 8px 0;
   @media (max-width: 991px) {
@@ -285,6 +285,7 @@ export const StepDetails = styled.div`
 
 export const StepTitle = styled.h3`
   font-family: Alata, sans-serif;
+  margin: 5px;
   @media (max-width: 991px) {
     max-width: 100%;
   }
@@ -299,55 +300,19 @@ export const StepDescription = styled.p`
   }
 `;
 
-export const MoreInfoButton = styled.button`
-  border-radius: 3px;
-  border: 1px solid rgba(128, 128, 128, 0.2);
-  background-color: #fafafa;
-  align-self: start;
-  margin-top: 10px;
-  color: #000;
-  padding: 6px 19px;
-  font: 11px Alata, sans-serif;
-`;
 
-export const NextStepTitle = styled.h4`
-  font-family: Alata, sans-serif;
-  margin-top: 21px;
-  @media (max-width: 991px) {
-    max-width: 100%;
-  }
-`;
-
-export const NextStepDescription = styled.p`
-  color: #cfcfcf;
-  margin-top: 6px;
-  font: 12px Poppins, sans-serif;
-  @media (max-width: 991px) {
-    max-width: 100%;
-  }
-`;
-
-export const StepButton = styled.div`
-  display: flex;
-  margin-left: 13px;
-  gap: 20px;
+export const StepButton = styled.button`
   font-size: 11px;
   color: #000;
-  justify-content: space-between;
+  width: 90px;
+  cursor: pointer;
+  height: 18px;
   @media (max-width: 991px) {
     margin-left: 10px;
   }
 `;
 
-export const StepButtonText = styled.div`
-  font-family: Alata, sans-serif;
-  border-radius: 3px;
-  border: 1px solid rgba(128, 128, 128, 0.2);
-  background-color: #fafafa;
-  justify-content: center;
-  margin: auto 0;
-  padding: 4px 12px;
-`;
+
 
 export const RightColumn = styled.div`
   display: flex;

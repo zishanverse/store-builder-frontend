@@ -1,4 +1,6 @@
 import * as React from "react";
+import {Navigate} from 'react-router-dom';
+import Cookies from 'js-cookie';
 import {HeaderWrapper, HeaderCont, WelcomeText, HeaderAct, DeliveryInfo, DeliveryText, Divi, TrackOrder, TrackOrderText, Offers,OffersText} from './style';
 import {NavWrapper,NavContent, LogoWrapper, LogoIcon, LogoText,NavActions, SearchBar,SearchInput,UserActions,UserActionItem, UserActionText} from './style';
 import {CategoryMenuWrapper,Divid, CategoryList, CategoryItem, CategoryLink, CategoryName, CategoryIcon, BannerImage} from './style';
@@ -406,7 +408,13 @@ const Footer = () => {
   );
 }
 
-const UserWebsite = () => (
+const UserWebsite = () => {
+  const jwt = Cookies.get("jwt_token");
+  if (jwt === undefined) {
+    return <Navigate to="/login" />
+  }
+
+  return (
     <>
         <WelcomeCard />
         <Nav />
@@ -414,8 +422,8 @@ const UserWebsite = () => (
         <MainComponent />
         <Footer />
     </>
-
 )
+}
 
 
 

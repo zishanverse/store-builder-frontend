@@ -25,7 +25,6 @@ const SignUp = () => {
       const userDetails = {email_phone, password, created_at: JSON.stringify(new Date())}
       const options = {method: "POST",url: `${url}/api/signup`, data: userDetails}
       const response = await axios(options);
-      console.log(response.data[0].id);
       
       Cookies.set("jwt_token", response.data.jwtToken);
       Cookies.set(`user_site_id`, response.data[0].user_site_id);

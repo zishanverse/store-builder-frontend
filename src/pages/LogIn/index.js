@@ -23,8 +23,8 @@ const LogIn = props => {
         }
         try {
             const res = await axios(options);
-            console.log(res);
             Cookies.set("jwt_token", res.data.jwtToken);
+            Cookies.set("user_site_id", res.data.user[0].user_site_id);
             navigate("/plans");
         }
         catch (err){

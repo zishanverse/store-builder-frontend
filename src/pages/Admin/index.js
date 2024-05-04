@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import { Navigate,Link, useNavigate } from "react-router-dom";
-import {AdminContainer,AppContainer, Header,ProfileImage,ProfileName,MenuContainer,MenuItem,MenuTitle,MenuIcon, Divider,   Container, Wrapper, MainContent, LeftColumn, IntroSection, IntroText, StoreSetupSection,StoreSetupHeader, StoreSetupTitle, StoreSetupDescription,StoreSetupProgress,StoreSetupSteps, StoreSetupStep,StepIcon,  StepImage, StepDivider, StepNumber ,StepDetails, StepTitle, StepDescription,MoreInfoButton, NextStepTitle, NextStepDescription, StepButton, StepButtonText, RightColumn, StoreDetailsSection, StoreLink, StoreLinkDetails, StoreLinkLabel, StoreLinkUrl,VisitWebsiteButton,KycSection,KycHeader, KycIcon,KycTitle,KycDescription,StartVerificationButton,Footer  } from './style';
+import {AdminContainer,AppContainer, Header,ProfileImage,ProfileName,MenuContainer,MenuItem,MenuTitle,MenuIcon,  Container, Wrapper, MainContent, LeftColumn, IntroSection, IntroText, StoreSetupSection,StoreSetupHeader, StoreSetupTitle, StoreSetupDescription,StoreSetupProgress,StoreSetupSteps, StoreSetupStep,StepIcon,  StepImage, StepDivider, StepNumber ,StepDetails, StepTitle, StepDescription, StepButton, RightColumn, StoreDetailsSection, StoreLink, StoreLinkDetails, StoreLinkLabel, StoreLinkUrl,VisitWebsiteButton,KycSection,KycHeader, KycIcon,KycTitle,KycDescription,StartVerificationButton,Footer  } from './style';
 
 const storeSetupData = [
   {
@@ -8,20 +8,25 @@ const storeSetupData = [
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/bae7e60e0296c340729f506d17dd20b80d83cc11556915db2233faee409b2c5d?apiKey=8bb72d5bc354495492eeb050b15297da&",
     title: "Name your store website",
     description: "Congratulation's, you just completed the store name step",
-    moreInfo: "More info",
-    nextStep: "Add your first product to your online store",
-    nextStepDescription:
-      "add product, description and price and start selling now to your online store",
+    buttonText: "More info",
+    
   },
   {
     id: 2,
+    title: "Add your first product to your online store",
+    description:"add product, description and price and start selling now to your online store",
+    buttonText: "Add product",
+  },
+  {
+    id: 3,
     title: "Add bank details or UPI ID on payment section",
     description:
       "Add UPI ID or Bank details or Aggrigator Api to accept payments from your online store",
     buttonText: "Payments",
   },
+  
   {
-    id: 3,
+    id: 4,
     title: "Customize your store theme",
     description:
       "Customize header, footer, menu, themes, templates and many more in theme setting page",
@@ -58,7 +63,6 @@ const SideBar = () => {
           
         
       </MenuContainer>
-      <Divider />
     </AppContainer>
   );
 }
@@ -94,31 +98,17 @@ const Admin = () => {
                   {storeSetupData.map((step) => (
                     <StoreSetupStep key={step.id}>
                       <StepIcon>
-                        {step.icon && <StepImage src={step.icon} />}
+                        {step.icon ? <StepImage src={step.icon} /> : <StepNumber>{step.id}</StepNumber>}
                         <StepDivider />
-                        <StepNumber>{step.id}</StepNumber>
+                        
                       </StepIcon>
                       <StepDetails>
                         <StepTitle>{step.title}</StepTitle>
                         <StepDescription>{step.description}</StepDescription>
-                        {step.moreInfo && (
-                          <MoreInfoButton>{step.moreInfo}</MoreInfoButton>
-                        )}
-                        {step.nextStep && (
-                          <>
-                            <NextStepTitle>{step.nextStep}</NextStepTitle>
-                            <NextStepDescription>
-                              {step.nextStepDescription}
-                            </NextStepDescription>
-                          </>
-                        )}
+                          <StepButton>{step.buttonText}</StepButton>
+                        
                       </StepDetails>
-                      {step.buttonText && (
-                        <StepButton>
-                          <StepDivider />
-                          <StepButtonText>{step.buttonText}</StepButtonText>
-                        </StepButton>
-                      )}
+                      
                     </StoreSetupStep>
                   ))}
                 </StoreSetupSteps>
