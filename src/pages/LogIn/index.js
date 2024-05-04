@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {useNavigate, Link} from 'react-router-dom';
+import {useNavigate,Navigate, Link} from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import {ImageWrapper, Image, ContentWrapper, Header,  Logo, Title, Heading, Subheading, Label, Input, Button, SignUpLink, LinkTest, Error} from './style';
@@ -9,7 +9,10 @@ const LogIn = props => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const jwt = Cookies.get("jwt_token");
     const url = "https://store-builder-backend-production.up.railway.app";
+
+
     const formSubmit = async (e) => {
         e.preventDefault();
         const userDetails = {email_phone, password};
@@ -20,15 +23,19 @@ const LogIn = props => {
         }
         try {
             const res = await axios(options);
+            console.log(res);
             Cookies.set("jwt_token", res.data.jwtToken);
             navigate("/plans");
         }
         catch (err){
             setError(err);
-            setError(err.response.data);
         }
 
     }
+  
+  if (jwt !== undefined) {
+    return <Navigate to="/" />
+  }
   return (
     <main style={{ backgroundColor: "#fff", padding: "14px 24px 25px" }}>
       <div style={{ gap: "20px", display: "flex" }}>

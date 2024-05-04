@@ -1,6 +1,7 @@
 import {useState} from 'react';
-import {useNavigate, Link} from 'react-router-dom';
+import {useNavigate,Navigate, Link} from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import {ImageWrapper, Image, FormWrapper, Header, Logo, Title,Heading, Subheading,Form,Label, Input, Button, LoginLink, Main,LinkTest, Error} from './style';
 
 const SignupImage = () => (
@@ -15,17 +16,27 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const jwt = Cookies.get("jwt_token");
+  const url = "https://store-builder-backend-production.up.railway.app";
+
   const signup = async(e) => {
     e.preventDefault();
     try {
       const userDetails = {email_phone, password, created_at: JSON.stringify(new Date())}
-      const options = {method: "POST",url: `${process.env.REACT_APP_BACKEND_URL}/api/signup`, data: userDetails}
+      const options = {method: "POST",url: `${url}/api/signup`, data: userDetails}
       const response = await axios(options);
+      console.log(response.data[0].id);
+      
+      Cookies.set("jwt_token", response.data.jwtToken);
+      Cookies.set(`user_site_id`, response.data[0].user_site_id);
       navigate("/plans");
     }
     catch (err) {
       setError(err.response.data);
     }
+  }
+  if (jwt !== undefined) {
+    return <Navigate to="/" />
   }
 
   return (

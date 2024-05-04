@@ -30,10 +30,13 @@ const storeSetupData = [
 ];
 
 
+
 const SideBar = () => {
+  
   const navigate = useNavigate();
   const logout = () => {
     Cookies.remove("jwt_token");
+    Cookies.remove("user_site_id");
     navigate("/login");
   }
   return (
@@ -61,6 +64,7 @@ const SideBar = () => {
 }
 
 const Admin = () => {
+  const id = Cookies.get("user_site_id");
   const jwt = Cookies.get("jwt_token");
   if (jwt === undefined) {
     return <Navigate to="/login"/>
@@ -128,7 +132,7 @@ const Admin = () => {
                   <StoreLinkLabel>Store Link</StoreLinkLabel>
                   <StoreLinkUrl>https://shopifly.in/fore</StoreLinkUrl>
                 </StoreLinkDetails>
-                <Link to="/user-website" > <VisitWebsiteButton >Visit Your website</VisitWebsiteButton></Link>
+                <Link to={`/user/${id}`}  > <VisitWebsiteButton >Visit Your website</VisitWebsiteButton></Link>
               </StoreLink>
               <KycSection>
                 <KycHeader>
