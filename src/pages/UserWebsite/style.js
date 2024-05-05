@@ -11,7 +11,8 @@ export const HeaderWrapper = styled.header`
   color: var(--Text, #666);
   font-weight: 400;
   justify-content: center;
-  padding: 12px 60px;
+  padding-left: 30px;
+  padding-right: 30px;
 
   @media (max-width: 991px) {
     max-width: 100%;
@@ -21,10 +22,8 @@ export const HeaderWrapper = styled.header`
 
 export const HeaderCont = styled.div`
   display: flex;
+  justify-content: space-between;
   width: 100%;
-  max-width: 1247px;
-  gap: 20px;
-
   @media (max-width: 991px) {
     max-width: 100%;
     flex-wrap: wrap;
@@ -33,17 +32,13 @@ export const HeaderCont = styled.div`
 
 export const WelcomeText = styled.h1`
   font-family: HK Grotesk, sans-serif;
-  line-height: 100%;
-  flex-grow: 1;
-  flex-basis: auto;
-  margin: auto 0;
+  font-size: 15px;
 `;
 
 export const HeaderAct = styled.div`
   display: flex;
-  gap: 15px;
-  text-align: right;
-  line-height: 129%;
+  align-items: center;
+  margin-right: 50px;
   justify-content: space-between;
 
   @media (max-width: 991px) {
@@ -51,8 +46,9 @@ export const HeaderAct = styled.div`
   }
 `;
 
-export const DeliveryInfo = styled.div`
+export const DeliveryTrackOffer = styled.div`
   display: flex;
+  align-items: center;
   gap: 6px;
   line-height: 18px;
 
@@ -74,33 +70,17 @@ export const Divi = styled.div`
   background-color: #d9d9d9;
   width: 1px;
   height: 18px;
+  margin-right: 10px;
+  margin-left: 10px;
 `;
 
-export const TrackOrder = styled.div`
-  display: flex;
-  gap: 6px;
 
-  img {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-  }
-`;
 
 export const TrackOrderText = styled.p`
   font-family: HK Grotesk, sans-serif;
 `;
 
-export const Offers = styled.div`
-  display: flex;
-  gap: 6px;
 
-  img {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-  }
-`;
 
 export const OffersText = styled.p`
   font-family: HK Grotesk, sans-serif;
@@ -120,7 +100,7 @@ export const NavWrapper = styled.header`
   display: flex;
   width: 100%;
   align-items: center;
-  padding: 1px 60px 21px;
+  padding:10px;
   
   @media (max-width: 991px) {
     max-width: 100%;
@@ -131,7 +111,6 @@ export const NavWrapper = styled.header`
 export const NavContent = styled.div`
   display: flex;
   width: 100%;
-  max-width: 1238px;
   justify-content: space-between;
   align-items: center;
   
@@ -160,29 +139,19 @@ export const LogoText = styled.img`
   fill: var(--Primary, #008ecc);
 `;
 
-export const NavActions = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  color: var(--Text, #666);
-  
-  @media (max-width: 991px) {
-    max-width: 100%;
-    flex-wrap: wrap;
-  }
-`;
+
 
 export const SearchBar = styled.div`
   border-radius: 10px;
   background-color: var(--Background-3, #f3f9fb);
   display: flex;
   align-items: center;
+  width: 40%;
   gap: 10px;
   font-size: 14px;
   font-weight: 400;
   line-height: 129%;
   padding: 15px 16px;
-  flex-grow: 1;
   
   @media (max-width: 991px) {
     max-width: 100%;
@@ -207,7 +176,6 @@ export const UserActions = styled.div`
   gap: 20px;
   font-size: 16px;
   font-weight: 700;
-  line-height: 112.5%;
 `;
 
 export const UserActionItem = styled.div`
@@ -249,9 +217,9 @@ export const CategoryMenuWrapper = styled.nav`
 `;
 
 export const Divid = styled.div`
-  border: 1px solid rgba(237, 237, 237, 1);
   background-color: #ededed;
-  min-height: 3px;
+  min-height: 1px;
+  margin-bottom: ${props => props.bottom ? '20px' : '0px'};
   width: 100%;
   @media (max-width: 991px) {
     max-width: 100%;
@@ -293,6 +261,7 @@ export const CategoryLink = styled.a`
 
 export const CategoryName = styled.span`
   font-family: HK Grotesk, sans-serif;
+  color: ${props => props.index !==0 ? '#000' : '#fff'};
 `;
 
 export const CategoryIcon = styled.img`
@@ -320,7 +289,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 80px;
   @media (max-width: 991px) {
     padding: 0 20px;
   }
@@ -328,9 +296,8 @@ export const Container = styled.div`
 
 export const HeroSection = styled.section`
   display: flex;
+  justify-content: center;
   width: 100%;
-  max-width: 1303px;
-  gap: 20px;
   @media (max-width: 991px) {
     flex-wrap: wrap;
   }
@@ -339,7 +306,6 @@ export const HeroSection = styled.section`
 export const HeroContent = styled.div`
   display: flex;
   gap: 0px;
-  flex-grow: 1;
   @media (max-width: 991px) {
     flex-wrap: wrap;
   }
@@ -350,13 +316,14 @@ export const HeroImage = styled.img`
   width: 86px;
   margin: auto 0;
   z-index: 10;
+  left: 100px;
 `;
 
 export const HeroTextContainer = styled.div`
   border-radius: 16px;
   background-color: #212844;
-  flex-grow: 1;
-  padding: 23px 0 23px 80px;
+  display: flex;
+  padding: 20px;
   @media (max-width: 991px) {
     padding: 23px;
   }
@@ -461,7 +428,7 @@ export const HeroImageColumnLeft = styled.div`
 
 export const HeroProductImage = styled.img`
   aspect-ratio: 0.99;
-  width: 100%;
+  height: 250px;
   flex-grow: 1;
   @media (max-width: 991px) {
     margin-top: 40px;
@@ -487,6 +454,9 @@ export const HeroImageButton = styled.div`
   width: 86px;
   height: 86px;
   margin: auto;
+  position: relative;
+  right: ${props => props.left ? '80px' : '0px'};
+  left: ${props => props.right ? '80px' : 'none'};
   @media (max-width: 991px) {
     margin-top: 40px;
   }
@@ -515,7 +485,7 @@ export const SectionTitle = styled.div`
 `;
 
 export const SectionTitleText = styled.h2`
-  color: #008ecc;
+  color: #717374;
   flex-grow: 1;
   font-size: 24px;
   font-weight: 700;
@@ -528,6 +498,7 @@ export const SectionTitleHighlight = styled.span`
 
 export const SectionTitleLink = styled.div`
   display: flex;
+  align-items: center;
   gap: 6px;
   font-size: 16px;
   color: #222;
@@ -545,10 +516,12 @@ export const SectionTitleLinkIcon = styled.img`
 export const SectionDivider = styled.div`
   border-top: 3px solid #008ecc;
   background-color: #008ecc;
-  width: 378px;
-  max-width: 100%;
+  width: 400px;
+  max-width: 100%;  
   height: 3px;
-  margin: 16px 0 0 40px;
+  margin-right: auto;
+  margin-left: 70px;
+  position: relative;
   @media (max-width: 991px) {
     margin-left: 10px;
   }
@@ -565,7 +538,7 @@ export const SectionSpacer = styled.div`
 export const ProductSection = styled.section`
   width: 986px;
   max-width: 100%;
-  margin: 40px 0 0 40px;
+  margin: 40px 0 20px 40px;
 `;
 
 export const ProductList = styled.div`
@@ -579,8 +552,11 @@ export const ProductList = styled.div`
 
 export const ProductCard = styled.article`
   display: flex;
+  background-color: var(--Backgorund-1, #f5f5f5);
   flex-direction: column;
   width: 25%;
+  border: 1px solid #f5f5f5; 
+  border-radius: 16px;
   @media (max-width: 991px) {
     width: 100%;
     margin-top: 26px;
@@ -589,8 +565,7 @@ export const ProductCard = styled.article`
 
 export const ProductImageWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   @media (max-width: 991px) {
     margin-top: 26px;
   }
@@ -605,6 +580,7 @@ export const ProductImage = styled.img`
 export const ProductDiscount = styled.div`
   font-size: 14px;
   color: #fff;
+  align-self: flex-start;
   font-weight: 600;
   text-align: center;
   line-height: 16px;
@@ -681,7 +657,7 @@ export const ProductSavings = styled.div`
 export const FooterContainer = styled.footer`
   background-color: var(--Primary, #008ecc);
   display: flex;
-  width: 100%;
+  width: 100vw;
   flex-direction: column;
   align-items: center;
   padding: 80px 60px 30px;
@@ -695,7 +671,6 @@ export const FooterContainer = styled.footer`
 export const FooterContent = styled.div`
   display: flex;
   width: 100%;
-  max-width: 1201px;
   flex-direction: column;
 
   @media (max-width: 991px) {
@@ -706,7 +681,7 @@ export const FooterContent = styled.div`
 export const FooterTop = styled.div`
   display: flex;
   width: 100%;
-  gap: 20px;
+  gap: 80px;
 
   @media (max-width: 991px) {
     flex-wrap: wrap;
@@ -759,10 +734,10 @@ export const DownloadApp = styled.div`
   margin-top: 37px;
   font: 20px/100% HK Grotesk, sans-serif;
 `;
-
-export const FooterLinks = styled.div`
-  flex-grow: 1;
-
+  
+export const FooterLinks = styled.ul`
+  display: flex;
+  gap: 80px;
   @media (max-width: 991px) {
     max-width: 100%;
   }
@@ -770,6 +745,7 @@ export const FooterLinks = styled.div`
 
 export const CategoryLinks = styled.div`
   display: flex;
+  padding: 0px;
   flex-direction: column;
   line-height: normal;
   width: 55%;
@@ -778,6 +754,11 @@ export const CategoryLinks = styled.div`
   @media (max-width: 991px) {
     width: 100%;
   }
+`;
+
+export const Item = styled.li`
+  padding: 0px;
+  margin: 0px;
 `;
 
 export const PopularCategories = styled.div`
@@ -834,8 +815,9 @@ export const ServicesHeading = styled.h3`
   font: 600 20px/100% HK Grotesk, sans-serif;
 `;
 
-export const ServicesList = styled.div`
+export const ServicesList = styled.ul`
   margin-top: 32px;
+  padding: 0px;
   font: 500 16px/37px HK Grotesk, sans-serif;
 `;
 

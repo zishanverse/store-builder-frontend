@@ -1,13 +1,13 @@
 import * as React from "react";
 import {Navigate} from 'react-router-dom';
 import Cookies from 'js-cookie';
-import {HeaderWrapper, HeaderCont, WelcomeText, HeaderAct, DeliveryInfo, DeliveryText, Divi, TrackOrder, TrackOrderText, Offers,OffersText} from './style';
+import {HeaderWrapper, HeaderCont, WelcomeText, HeaderAct, DeliveryTrackOffer, DeliveryText, Divi, TrackOrderText, OffersText} from './style';
 import {NavWrapper,NavContent, LogoWrapper, LogoIcon, LogoText,NavActions, SearchBar,SearchInput,UserActions,UserActionItem, UserActionText} from './style';
 import {CategoryMenuWrapper,Divid, CategoryList, CategoryItem, CategoryLink, CategoryName, CategoryIcon, BannerImage} from './style';
 import {Container, HeroSection, HeroContent, HeroImage, HeroTextContainer,HeroTextContent,HeroTextColumn, HeroTextWrapper,HeroSubtitle,HeroTitle, HeroDescription, HeroButton,HeroImageColumn, HeroImageWrapper, HeroImageContent,HeroImageColumnLeft,HeroProductImage, HeroImageColumnRight,HeroImageButton,HeroImageButtonIcon, HeroSpacer,SectionTitle, SectionTitleText,SectionTitleLink, SectionTitleLinkText, SectionTitleLinkIcon,SectionTitleHighlight, SectionDivider,SectionSpacer, ProductSection, ProductList, ProductCard, ProductImageWrapper, ProductImage, ProductDiscount, ProductDetails, ProductName, ProductPricing, ProductPrice, ProductOldPrice, ProductDivider, ProductSavings} from './style';
-import {FooterContainer, FooterContent, FooterTop, CompanyInfo, CompanyLogo, ContactUsHeading, ContactInfo, ContactIcon, ContactText, ContactNumber, DownloadApp, FooterLinks, CategoryLinks, PopularCategories, CategoriesHeading, Divider, CategoriesList, ServiceLinks, CustomerServices, ServicesHeading, ServicesList, Copyright} from './style';
+import {FooterContainer, FooterContent,Item, FooterTop, CompanyInfo, CompanyLogo, ContactUsHeading, ContactInfo, ContactIcon, ContactText, ContactNumber, DownloadApp, FooterLinks, CategoryLinks, PopularCategories, CategoriesHeading, Divider, CategoriesList, ServiceLinks, CustomerServices, ServicesHeading, ServicesList, Copyright} from './style';
 
-const data = [
+const data = 
   {
     id: 1,
     locationText: "Deliver to",
@@ -17,8 +17,8 @@ const data = [
     trackOrderIcon: "https://cdn.builder.io/api/v1/image/assets/TEMP/dbedcc64f8acef6a267e0e99b1aa5509eac64f2f96ceac56fd5026da12aa6d8d?apiKey=1267a3b2841040f2b70bd63147e73b36&",
     offersText: "All Offers",
     offersIcon: "https://cdn.builder.io/api/v1/image/assets/TEMP/1dc00d7e4312da5d2c72c5e3830027d9322f139cdc6255133c44253c527a681c?apiKey=1267a3b2841040f2b70bd63147e73b36&",
-  },
-];
+  }
+
 
 const navCategories = [
     {
@@ -133,26 +133,24 @@ const WelcomeCard = () => {
       <HeaderCont>
         <WelcomeText>Welcome to worldwide Megamart!</WelcomeText>
         <HeaderAct>
-          {data.map((item) => (
-            <React.Fragment key={item.id}>
-              <DeliveryInfo>
-                <img src={item.locationIcon} alt="Location icon" />
+            <React.Fragment >
+              <DeliveryTrackOffer>
+                <img src={data.locationIcon} alt="Location icon" />
                 <DeliveryText>
-                  {item.locationText} <strong>{item.locationNumber}</strong>
+                  {data.locationText} <strong>{data.locationNumber}</strong>
                 </DeliveryText>
-              </DeliveryInfo>
+              </DeliveryTrackOffer>
               <Divi />
-              <TrackOrder>
-                <img src={item.trackOrderIcon} alt="Track order icon" />
-                <TrackOrderText>{item.trackOrderText}</TrackOrderText>
-              </TrackOrder>
+              <DeliveryTrackOffer>
+                <img src={data.trackOrderIcon} alt="Track order icon" />
+                <TrackOrderText>{data.trackOrderText}</TrackOrderText>
+              </DeliveryTrackOffer>
               <Divi />
-              <Offers>
-                <img src={item.offersIcon} alt="Offers icon" />
-                <OffersText>{item.offersText}</OffersText>
-              </Offers>
+              <DeliveryTrackOffer>
+                <img src={data.offersIcon} alt="Offers icon" />
+                <OffersText>{data.offersText}</OffersText>
+              </DeliveryTrackOffer>
             </React.Fragment>
-          ))}
         </HeaderAct>
       </HeaderCont>
     </HeaderWrapper>
@@ -162,19 +160,19 @@ const WelcomeCard = () => {
 
 const SearchIcon = () => (
   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z" fill="#666666"/>
+    <path d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z" fill="#578FE8"/>
   </svg>
 );
 
 const UserIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#666666"/>
+    <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#578FE8"/>
   </svg>
 );
 
 const CartIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.55 13C16.3 13 16.96 12.59 17.3 11.97L20.88 5.48C21.25 4.82 20.77 4 20.01 4H5.21L4.27 2H1V4H3L6.6 11.59L5.25 14.03C4.52 15.37 5.48 17 7 17H19V15H7L8.1 13H15.55ZM6.16 6H18.31L15.55 11H8.53L6.16 6ZM7 18C5.9 18 5.01 18.9 5.01 20C5.01 21.1 5.9 22 7 22C8.1 22 9 21.1 9 20C9 18.9 8.1 18 7 18ZM17 18C15.9 18 15.01 18.9 15.01 20C15.01 21.1 15.9 22 17 22C18.1 22 19 21.1 19 20C19 18.9 18.1 18 17 18Z" fill="#666666"/>
+    <path d="M15.55 13C16.3 13 16.96 12.59 17.3 11.97L20.88 5.48C21.25 4.82 20.77 4 20.01 4H5.21L4.27 2H1V4H3L6.6 11.59L5.25 14.03C4.52 15.37 5.48 17 7 17H19V15H7L8.1 13H15.55ZM6.16 6H18.31L15.55 11H8.53L6.16 6ZM7 18C5.9 18 5.01 18.9 5.01 20C5.01 21.1 5.9 22 7 22C8.1 22 9 21.1 9 20C9 18.9 8.1 18 7 18ZM17 18C15.9 18 15.01 18.9 15.01 20C15.01 21.1 15.9 22 17 22C18.1 22 19 21.1 19 20C19 18.9 18.1 18 17 18Z" fill="#578FE8"/>
   </svg>
 );
 
@@ -187,7 +185,6 @@ const Nav = () => {
           <LogoText src="https://cdn.builder.io/api/v1/image/assets/TEMP/44e1b0cd1d153111b0a0b3e2b5e7b67d2fba427abf2d0169c6414e7ad7feb5ad?apiKey=1267a3b2841040f2b70bd63147e73b36&" alt="Logo text" />
         </LogoWrapper>
         
-        <NavActions>
           <SearchBar>
             <SearchIcon />
             <SearchInput type="text" placeholder="Search essentials, groceries and more..." />
@@ -204,7 +201,6 @@ const Nav = () => {
               <UserActionText>Cart</UserActionText>
             </UserActionItem>
           </UserActions>
-        </NavActions>
       </NavContent>
     </NavWrapper>
   );
@@ -226,7 +222,7 @@ const CategoryMenu = () => {
         {navCategories.map((category, index) => (
           <CategoryItem key={index} backgroundColor={category.color}>
             <CategoryLink>
-              <CategoryName>{category.name}</CategoryName>
+              <CategoryName index={index} >{category.name}</CategoryName>
               <CategoryIcon
                 src={category.icon}
                 alt={`Icon for ${category.name} category`}
@@ -235,8 +231,8 @@ const CategoryMenu = () => {
           </CategoryItem>
         ))}
       </CategoryList>
-      <BannerImage src="https://cdn.builder.io/api/v1/image/assets/TEMP/c26599aab2ba7c9e00b2df2134c23bab5fed3ccebf4cbd8ed8d3c1f87081faaa?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&" alt="Promotional banner" />
-    </CategoryMenuWrapper>
+      <Divid bottom/>
+      </CategoryMenuWrapper>
   );
 }
 
@@ -253,52 +249,43 @@ const MainComponent =() => {
     <Container>
       <HeroSection>
         <HeroContent>
-          <HeroImage loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a2497ea5ea6eca35756159aceb7f856c311a07a29f81fdb68b3f663a3737a17a?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&" alt="Hero Image" />
           <HeroTextContainer>
-            <HeroTextContent>
-              <HeroTextColumn>
-                <HeroTextWrapper>
-                  <HeroSubtitle>
-                    Best Deal Online on smart watches
-                  </HeroSubtitle>
-                  <HeroTitle>SMART WEARABLE.</HeroTitle>
-                  <HeroDescription>UP to 80% OFF</HeroDescription>
-                  <HeroButton loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a120a2d406340f1de5ce1a287523e27c8479381af7097de86f855dbc734fef4a?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&" alt="Button" />
-                </HeroTextWrapper>
-              </HeroTextColumn>
-              <HeroImageColumn>
-                <HeroImageWrapper>
-                  <HeroImageContent>
-                    <HeroImageColumnLeft>
-                      <HeroProductImage
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/317b096c738325f2c3c7b4ebac42a448967f1cc3579a75b71ac0734fe6abc995?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&"
-                        alt="Product"
-                      />
-                    </HeroImageColumnLeft>
-                    <HeroImageColumnRight>
-                      <HeroImageButton>
-                        <HeroImageButtonIcon
-                          loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/28249ec4d7ab5b8b337d9017d3dfb411cdb43feebdd92e9a9607320c05381717?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&"
-                          alt="Button Icon"
-                        />
-                      </HeroImageButton>
-                    </HeroImageColumnRight>
-                  </HeroImageContent>
-                </HeroImageWrapper>
-              </HeroImageColumn>
-            </HeroTextContent>
+            <HeroImageButton left>
+              <HeroImage  loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a2497ea5ea6eca35756159aceb7f856c311a07a29f81fdb68b3f663a3737a17a?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&" alt="Hero Image" />
+            </HeroImageButton>
+            <HeroTextColumn>
+              <HeroTextWrapper>
+                <HeroSubtitle>
+                  Best Deal Online on smart watches
+                </HeroSubtitle>
+                <HeroTitle>SMART WEARABLE.</HeroTitle>
+                <HeroDescription>UP to 80% OFF</HeroDescription>
+                <HeroButton loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a120a2d406340f1de5ce1a287523e27c8479381af7097de86f855dbc734fef4a?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&" alt="Button" />
+              </HeroTextWrapper>
+            </HeroTextColumn>
+            
+            <HeroProductImage
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/317b096c738325f2c3c7b4ebac42a448967f1cc3579a75b71ac0734fe6abc995?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&"
+              alt="Product"
+            />
+            <HeroImageButton right>
+              <HeroImageButtonIcon
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/28249ec4d7ab5b8b337d9017d3dfb411cdb43feebdd92e9a9607320c05381717?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&"
+                alt="Button Icon"
+              />
+            </HeroImageButton>
+                  
           </HeroTextContainer>
         </HeroContent>
-        <HeroSpacer />
       </HeroSection>
       <SectionTitle>
         <SectionTitleText>
           Grab the best deal on{" "}
           <SectionTitleHighlight>Smartphones</SectionTitleHighlight>
         </SectionTitleText>
-        <SectionTitleLink>
+        <SectionTitleLink>  
           <SectionTitleLinkText>View All</SectionTitleLinkText>
           <SectionTitleLinkIcon
             loading="lazy"
@@ -312,7 +299,7 @@ const MainComponent =() => {
       <ProductSection>
         <ProductList>
           {products.map((product) => (
-            <ProductCard key={product.id}>
+            <ProductCard index={product.id} key={product.id}>
               <ProductImageWrapper>
                 <ProductImage
                   loading="lazy"
@@ -378,8 +365,7 @@ const Footer = () => {
                 <CategoriesList>
                   {categories.map((category, index) => (
                     <React.Fragment key={index}>
-                      {category}
-                      <br />
+                      <Item>{category}</Item>
                     </React.Fragment>
                   ))}
                 </CategoriesList>
@@ -392,8 +378,7 @@ const Footer = () => {
                 <ServicesList>
                   {customerServices.map((service, index) => (
                     <React.Fragment key={index}>
-                      {service}
-                      <br />
+                      <Item>{service}</Item>
                     </React.Fragment>
                   ))}
                 </ServicesList>
