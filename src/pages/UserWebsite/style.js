@@ -520,7 +520,7 @@ export const SectionDivider = styled.div`
   max-width: 100%;  
   height: 3px;
   margin-right: auto;
-  margin-left: 70px;
+  margin-left: 140px;
   position: relative;
   @media (max-width: 991px) {
     margin-left: 10px;
