@@ -16,7 +16,7 @@ export const Main = styled.main`
 export const ImageWrapper = styled.div`
   width: 61%;
   margin-left: 0;
-
+  max-height: 100vh;
   @media (max-width: 991px) {
     width: 100%;
   }
@@ -50,6 +50,7 @@ export const FormWrapper = styled.div`
 
 export const Header = styled.header`
 display: flex;
+align-items: center;
 gap: 9px;
 font-size: 24px;
 color: #000;
@@ -62,7 +63,7 @@ align-self: flex-end;
 `;
 
 export const Logo = styled.img`
-  width: 35px;
+  width: 30px;
   aspect-ratio: 1;
   object-fit: contain;
 `;
@@ -70,6 +71,7 @@ export const Logo = styled.img`
 export const Title = styled.h1`
   font-family: "Inria Sans", sans-serif;
   font-style: italic;
+  font-size: 20px;
   margin: 0;
 `;
 

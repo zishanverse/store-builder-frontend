@@ -37,7 +37,7 @@ const LogIn = props => {
     return <Navigate to="/" />
   }
   return (
-    <main style={{ backgroundColor: "#fff", padding: "14px 24px 25px" }}>
+    <main style={{ backgroundColor: "#fff", padding: "14px 24px 25px", maxHeight: "100vh" }}>
       <div style={{ gap: "20px", display: "flex" }}>
         <ImageWrapper>
           <Image loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/807ec45dff6189afb2594007d146fcbe35f941939afc035ac097f5cd85e1f970?apiKey=b8cc32bd74464d83be1bf3c8c52a5010&" alt="Decorative" />

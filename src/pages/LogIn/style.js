@@ -5,6 +5,7 @@ export const ImageWrapper = styled.div`
   flex-direction: column;
   line-height: normal;
   width: 61%;
+  height: 60%;
   margin-left: 0;
 
   @media (max-width: 991px) {
@@ -56,13 +57,13 @@ export const Logo = styled.img`
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center;
-  width: 35px;
+  width: 30px;
 `;
 
 export const Title = styled.h1`
   font-family: Inria Sans, sans-serif;
   font-style: italic;
-  flex-grow: 1;
+  font-size: 20px;
   flex-basis: auto;
   margin: auto 0;
 `;
