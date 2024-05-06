@@ -163,6 +163,7 @@ export const ChoosePlanButton = styled.button`
   letter-spacing: 0.13px;
   justify-content: center;
   padding: 20px 60px;
+  width: 100%;
   font: 500 13px/100% Poppins, sans-serif;
   cursor: pointer;
 
