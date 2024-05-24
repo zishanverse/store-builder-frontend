@@ -11,6 +11,7 @@ const LogIn = props => {
     const navigate = useNavigate();
     const jwt = Cookies.get("jwt_token");
     const url = "https://store-builder-backend-production.up.railway.app";
+    const renderUrl = "https://store-builder-backend.onrender.com";
 
 
     const formSubmit = async (e) => {
@@ -18,8 +19,13 @@ const LogIn = props => {
         const userDetails = {email_phone, password};
         const options = {
             method: "POST",
-            url: `${url}/login/`,
+            url: `${renderUrl}/login/`,
             data: userDetails
+        }
+        const option = {
+          method: "POST",
+          headers:{'content-type': 'application/json'},
+          body: JSON.stringify(userDetails)
         }
         try {
             const res = await axios(options);
@@ -28,7 +34,7 @@ const LogIn = props => {
             navigate("/plans");
         }
         catch (err){
-            setError(err);
+            setError(err.message);
         }
 
     }
@@ -52,10 +58,10 @@ const LogIn = props => {
             <Subheading>login to your acc and access your store</Subheading>
             <form onSubmit={formSubmit}>
               <Label htmlFor="email">Email / Phone</Label>
-              <Input type="email" id="email" name="email" value={email_phone} onChange={(e) => setEmailPhone(e.target.value)} placeholder="Example@email.com" />
+              <Input type="email" id="email"  value={email_phone} onChange={(e) => setEmailPhone(e.target.value)} placeholder="Example@email.com" />
               
               <Label htmlFor="password" marginTop="9px">Password</Label>
-              <Input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="At least 8 characters" />
+              <Input type="password" id="password"  value={password} onChange={(e) => setPassword(e.target.value)} placeholder="At least 8 characters" />
               
               <Button type="submit">Sign in</Button>
               <Error>*{error}</Error>

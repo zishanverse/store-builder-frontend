@@ -15,15 +15,18 @@ const SignUp = () => {
   const [email_phone, setEmailPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [site_name, setSiteName] = useState("");
+  const [category, setCategory] = useState("");
   const navigate = useNavigate();
   const jwt = Cookies.get("jwt_token");
   const url = "https://store-builder-backend-production.up.railway.app";
+  const renderUrl = "https://store-builder-backend.onrender.com";
 
   const signup = async(e) => {
     e.preventDefault();
     try {
-      const userDetails = {email_phone, password, created_at: JSON.stringify(new Date())}
-      const options = {method: "POST",url: `${url}/api/signup`, data: userDetails}
+      const userDetails = {email_phone, password, created_at: JSON.stringify(new Date()), site_name, category}
+      const options = {method: "POST",url: `${renderUrl}/api/signup`, data: userDetails}
       const response = await axios(options);
       
       Cookies.set("jwt_token", response.data.jwtToken);
@@ -57,6 +60,13 @@ const SignUp = () => {
             Password
           </Label>
           <Input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="At least 8 characters" />
+          <Label htmlFor='name' >Name Your Site</Label>
+          <Input id="name"  value={site_name} onChange={(e) => setSiteName(e.target.value)} placeholder='Enter Site Name'/>
+          <Label htmlFor='category' >Category</Label>
+          <Input as="select" id="category" value={category} onChange={e => setCategory(e.target.value)} >
+              <option value="normal" selected >Normal</option>
+              <option value="wordpress" >Wordpress</option>
+          </Input>
           <Button type="submit">Sign up</Button>
           <Error>*{error}</Error>
         </Form>
