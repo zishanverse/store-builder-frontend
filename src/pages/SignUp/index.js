@@ -26,11 +26,10 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const userDetails = {email_phone, password, created_at: JSON.stringify(new Date()), site_name, category}
-      const options = {method: "POST",url: `${renderUrl}/api/signup`, data: userDetails}
+      const options = {method: "POST",url: `${renderUrl}/api/signup`,headers: {'Access-Control-Allow-Origin': "*"} , data: userDetails}
       const response = await axios(options);
-      
       Cookies.set("jwt_token", response.data.jwtToken);
-      Cookies.set(`user_site_id`, response.data[0].user_site_id);
+      Cookies.set(`site_name`, response.data[0].site_name);
       navigate("/plans");
     }
     catch (err) {

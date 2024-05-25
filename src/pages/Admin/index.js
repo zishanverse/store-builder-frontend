@@ -68,7 +68,7 @@ const SideBar = () => {
 }
 
 const Admin = () => {
-  const id = Cookies.get("user_site_id");
+  const id = Cookies.get("site_name");
   const jwt = Cookies.get("jwt_token");
   if (jwt === undefined) {
     return <Navigate to="/login"/>
